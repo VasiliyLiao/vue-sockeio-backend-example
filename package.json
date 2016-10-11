@@ -1,0 +1,26 @@
+{
+  "name": "vue-backend-example",
+  "version": "1.0.0",
+  "description": "using socket.io to be vue.js chat example",
+  "main": "bin/app.js",
+  "scripts": {
+    "build": "./node_modules/.bin/webpack --progress",
+    "startServer": "node bin/app/app.js",
+    "testByClient": "node bin/app/client.js"
+  },
+  "author": "vasiliy.liao",
+  "devDependencies": {
+    "babel-core": "^6.13.2",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.13.2",
+    "json-loader": "^0.5.4",
+    "socket.io-client": "^1.4.8",
+    "source-map-support": "^0.4.2",
+    "webpack": "^1.13.2",
+    "webpack-dev-middleware": "^1.6.1"
+  },
+  "dependencies": {
+    "node-uuid": "^1.4.7",
+    "socket.io": "^1.5.0"
+  }
+}
