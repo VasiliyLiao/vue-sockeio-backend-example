@@ -12,7 +12,7 @@ npm run build
 ```
 startServer
 ```
-npm run server
+npm run startServer
 ```
 test
 ```
