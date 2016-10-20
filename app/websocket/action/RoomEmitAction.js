@@ -1,4 +1,4 @@
-import Room from '../service/Room';
+import Room from '../../repositories/Room';
 
 class RoomEmitAction {
 
@@ -12,7 +12,7 @@ class RoomEmitAction {
   sendMessage(roomId, message, object = {}) {
 
     if (Room.getRoom(roomId)) {
-      _socketIoServer.to(roomId).emit('chat', Object.assign({message: message}, object));
+      _SocketIOServer.to(roomId).emit('chat', Object.assign({message: message}, object));
       console.log('the server send message to roomId: ' + roomId);
       return true;
     }

@@ -38,9 +38,12 @@ class Room {
    * 新增一間房間
    * @return {string}
    */
-  addRandomRoom() {
-    const id = uuid.v4();
+  addRandomRoom(id = null) {
+    if (id == null) {
+      id = uuid.v4();
+    }
     this.rooms[id] = [];
+
     return id;
   }
 

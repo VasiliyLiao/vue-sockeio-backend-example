@@ -1,4 +1,4 @@
-import SocketClient from '../service/SocketClient';
+import SocketClient from '../../repositories/SocketClient';
 
 /**
  *  ClientEmitAction

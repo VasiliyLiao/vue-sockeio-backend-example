@@ -5,7 +5,7 @@ import {ClientAction, RoomAction} from './websocket/EmitActionBinding'
 import {ClientRoomBind, SocketClient, Room} from './service/ClientRoomBinding';
 
 let io = Server(8000);
-global._socketIoServer = io;
+global._SocketIOServer = io;
 
 ShowConsole.onAddNewRoom(Room.addRandomRoom());
 
@@ -16,6 +16,11 @@ io.on('connection', (socket)=> {
 
   socket.on('disconnect', (err)=> {
     ShowConsole.onDisconnect(id, err);
+    /*送出client離開聊天室*/
+    const clientOwnRooms = ClientRoomBind.getClientOwnRooms(id);
+    for (let index in clientOwnRooms) {
+      RoomAction.removeUserInRoom(clientOwnRooms[index], id);
+    }
     /* repository*/
     ClientRoomBind.removeClientAndRelation(id);
   });

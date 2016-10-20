@@ -2,7 +2,7 @@
   "name": "vue-backend-example",
   "version": "1.0.0",
   "description": "using socket.io to be vue.js chat example",
-  "main": "bin/app.js",
+  "main": "bin/app/app.js",
   "scripts": {
     "build": "./node_modules/.bin/webpack --progress",
     "startServer": "node bin/app/app.js",

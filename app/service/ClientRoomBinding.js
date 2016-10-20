@@ -1,5 +1,5 @@
-import SocketClient from './SocketClient';
-import Room from './Room';
+import SocketClient from '../repositories/SocketClient';
+import Room from '../repositories/Room';
 
 class ClientRoomBinding {
 
@@ -80,6 +80,7 @@ class ClientRoomBinding {
   /**
    * 移除client在全部房間
    * @param {string} clientId
+   * @return {boolean}
    */
   removeClientFromAllRoom(clientId) {
     const roomIds = Room.getAllRoomIds();
@@ -93,15 +94,19 @@ class ClientRoomBinding {
       }
     }
 
+    return true;
   }
 
   /**
    * 刪除client所有資料
    * @param {string} clientId
+   * @return {boolean}
    */
   removeClientAndRelation(clientId) {
     this.removeClientFromAllRoom(clientId);
-    console.log(SocketClient.removeClient(clientId));
+    SocketClient.removeClient(clientId);
+
+    return true;
   }
 
 }
